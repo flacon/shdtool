@@ -23,6 +23,8 @@
 #ifndef __CORE_H__
 #define __CORE_H__
 
+#include "config.h"
+
 /* program info */
 #define RELEASE   VERSION
 #define COPYRIGHT "Copyright (C) 2000-2009"
