@@ -1,4 +1,4 @@
-/*  shdtool.h - global private definitions
+/*  shntool.h - global private definitions
  *  Copyright (C) 2000-2009  Jason Jordan <shnutils@freeshell.org>
  *
  *  This program is free software; you can redistribute it and/or
@@ -17,7 +17,7 @@
  */
 
 /*
- * $Id: shdtool.h,v 1.31 2009/03/11 17:18:01 jason Exp $
+ * $Id: shntool.h,v 1.31 2009/03/11 17:18:01 jason Exp $
  */
 
 #ifndef __SHDTOOL_H__

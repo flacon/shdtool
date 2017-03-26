@@ -20,7 +20,7 @@
 #include <ctype.h>
 #include <sys/stat.h>
 #include <errno.h>
-#include "shntool.h"
+#include "shdtool.h"
 
 CVSID("$Id: core_wave.c,v 1.112 2009/03/11 17:18:01 jason Exp $")
 

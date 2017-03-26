@@ -40,7 +40,7 @@ set(SOURCES
     src/core_mode.c
     src/core_module.c
     src/core_output.c
-    src/core_shntool.c
+    src/core_shdtool.c
     src/core_wave.c
 
     src/format_aiff.c
@@ -136,5 +136,5 @@ foreach(MODE ${MODES})
 endforeach()
 
 # Man pages ********************************
-create_man("shntool.1" "man/shntool.1")
+create_man("shdtool.1" "man/shdtool.1")
 

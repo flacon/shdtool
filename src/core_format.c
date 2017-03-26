@@ -21,7 +21,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-#include "shntool.h"
+#include "shdtool.h"
 
 CVSID("$Id: core_format.c,v 1.44 2009/03/11 17:18:01 jason Exp $")
 
@@ -139,7 +139,7 @@ static void spawn(child_args *process_args,FILE **readpipe,FILE **writepipe,proc
 
   /* create pipes for two-way communication */
   if ((pipe(pipe1) < 0) || (pipe(pipe2) < 0)) {
-    perror("shntool: pipe");
+    perror("shdtool: pipe");
     st_error("error while creating pipes for two-way communication with child process");
   }
 
@@ -147,7 +147,7 @@ static void spawn(child_args *process_args,FILE **readpipe,FILE **writepipe,proc
   switch ((pinfo->pid = fork())) {
     case -1:
       /* fork failed */
-      perror("shntool: fork");
+      perror("shdtool: fork");
       st_error("error while forking child process");
       break;
     case 0:
@@ -192,7 +192,7 @@ static void spawn(child_args *process_args,FILE **readpipe,FILE **writepipe,proc
         close(i);
 
       if (execvp(process_args->args[0],process_args->args) < 0) {
-        perror("shntool: execvp");
+        perror("shdtool: execvp");
         st_error("error while launching helper program: [%s]",process_args->args[0]);
       }
 

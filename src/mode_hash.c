@@ -59,7 +59,7 @@ static progress_info proginfo;
 
 static wave_info **files;
 
-/* shntool: modified GNU coreutils 5.93 md5/sha1 routines below */
+/* shdtool: modified GNU coreutils 5.93 md5/sha1 routines below */
 
 /* md5.c - Functions to compute MD5 message digest of files or memory blocks
    according to the definition of MD5 in RFC 1321 from April 1992.
@@ -97,7 +97,7 @@ static wave_info **files;
 # define md5_buffer __md5_buffer
 #endif
 
-/* shntool: use different swapping macros for MD5/SHA1 */
+/* shdtool: use different swapping macros for MD5/SHA1 */
 #ifdef WORDS_BIGENDIAN
 # define SWAP_MD5(n)							\
     (((n) << 24) | (((n) & 0xff00) << 8) | (((n) >> 8) & 0xff00) | ((n) >> 24))
@@ -108,7 +108,7 @@ static wave_info **files;
     (((n) << 24) | (((n) & 0xff00) << 8) | (((n) >> 8) & 0xff00) | ((n) >> 24))
 #endif
 
-/* shntool: begin common md5/sha1 definitions */
+/* shdtool: begin common md5/sha1 definitions */
 #define BLOCKSIZE 4096
 #if BLOCKSIZE % 64 != 0
 # error "invalid BLOCKSIZE"
@@ -119,9 +119,9 @@ static wave_info **files;
 static const unsigned char fillbuf[64] = { 0x80, 0 /* , 0, 0, ...  */ };
 
 char global_buffer[BLOCKSIZE + 72];
-/* shntool: end common md5/sha1 definitions */
+/* shdtool: end common md5/sha1 definitions */
 
-/* shntool: global md5 context */
+/* shdtool: global md5 context */
 struct md5_ctx md5_global_ctx;
 
 /* Initialize structure containing state of computation.
@@ -192,20 +192,20 @@ int
 md5_stream (FILE *stream, void *resblock)
 {
   size_t sum;
-  unsigned long totalbytes = 0;  /* shntool */
+  unsigned long totalbytes = 0;  /* shdtool */
 
-  /* shntool: */
+  /* shdtool: */
   if (0 == maxbytes)
     return 0;
 
   /* Initialize the computation context.  */
-  /* shntool: now done outside of this function */
+  /* shdtool: now done outside of this function */
 /*
   md5_init_ctx (&md5_global_ctx);
 */
 
   /* Iterate over full file contents.  */
-  /* shntool: stop after WAVE data is read */
+  /* shdtool: stop after WAVE data is read */
   while (1)
     {
       /* We read the file in blocks of BLOCKSIZE bytes.  One call of the
@@ -221,9 +221,9 @@ md5_stream (FILE *stream, void *resblock)
 	  n = read_n_bytes(stream, (unsigned char *)(global_buffer + sum), BLOCKSIZE - sum, &proginfo);
 
 	  sum += n;
-      totalbytes += n;  /* shntool */
+      totalbytes += n;  /* shdtool */
 
-      /* shntool: if total bytes read exceeded the WAVE data size, discard the rest and adjust sum */
+      /* shdtool: if total bytes read exceeded the WAVE data size, discard the rest and adjust sum */
       if (totalbytes > maxbytes) {
         sum -= (totalbytes - maxbytes);
         totalbytes = maxbytes;
@@ -258,22 +258,22 @@ md5_stream (FILE *stream, void *resblock)
  md5_process_partial_block:;
 
   /* Process any remaining bytes.  */
-  /* shntool: now done outside this function */
+  /* shdtool: now done outside this function */
 /*
   if (sum > 0)
     md5_process_bytes (global_buffer, sum, &md5_global_ctx);
 */
 
-  /* shntool: keep track of partial blocks */
+  /* shdtool: keep track of partial blocks */
   remaining_bytes = sum;
 
   /* Construct result in desired memory.  */
-  /* shntool: now done outside this function */
+  /* shdtool: now done outside this function */
 /*
   md5_finish_ctx (&md5_global_ctx, resblock);
 */
 
-  /* shntool: use custom return code */
+  /* shdtool: use custom return code */
 /*
   return 0;
 */
@@ -565,7 +565,7 @@ md5_process_block (const void *buffer, size_t len, struct md5_ctx *ctx)
 
 #include "sha1.h"
 
-/* shntool: global sha1 context */
+/* shdtool: global sha1 context */
 struct sha1_ctx sha1_global_ctx;
 
 /*
@@ -646,20 +646,20 @@ int
 sha1_stream (FILE *stream, void *resblock)
 {
   size_t sum;
-  unsigned long totalbytes = 0;  /* shntool */
+  unsigned long totalbytes = 0;  /* shdtool */
 
-  /* shntool: */
+  /* shdtool: */
   if (0 == maxbytes)
     return 0;
 
   /* Initialize the computation context.  */
-  /* shntool: now done outside of this function */
+  /* shdtool: now done outside of this function */
 /*
   sha1_init_ctx (&sha1_global_ctx);
 */
 
   /* Iterate over full file contents.  */
-  /* shntool: stop after WAVE data is read */
+  /* shdtool: stop after WAVE data is read */
   while (1)
     {
       /* We read the file in blocks of BLOCKSIZE bytes.  One call of the
@@ -674,9 +674,9 @@ sha1_stream (FILE *stream, void *resblock)
 	  n = read_n_bytes(stream, (unsigned char *)(global_buffer + sum), BLOCKSIZE - sum, &proginfo);
 
 	  sum += n;
-      totalbytes += n;  /* shntool */
+      totalbytes += n;  /* shdtool */
 
-      /* shntool: if total bytes read exceeded the WAVE data size, discard the rest and adjust sum */
+      /* shdtool: if total bytes read exceeded the WAVE data size, discard the rest and adjust sum */
       if (totalbytes > maxbytes) {
         sum -= (totalbytes - maxbytes);
         totalbytes = maxbytes;
@@ -711,22 +711,22 @@ sha1_stream (FILE *stream, void *resblock)
  sha1_process_partial_block:;
 
   /* Process any remaining bytes.  */
-  /* shntool: now done outside this function */
+  /* shdtool: now done outside this function */
 /*
   if (sum > 0)
     sha1_process_bytes (global_buffer, sum, &sha1_global_ctx);
 */
 
-  /* shntool: keep track of partial blocks */
+  /* shdtool: keep track of partial blocks */
   remaining_bytes = sum;
 
   /* Construct result in desired memory.  */
-  /* shntool: now done outside this function */
+  /* shdtool: now done outside this function */
 /*
   sha1_finish_ctx (&sha1_global_ctx, resblock);
 */
 
-  /* shntool: use custom return code */
+  /* shdtool: use custom return code */
 /*
   return 0;
 */
@@ -969,7 +969,7 @@ sha1_process_block (const void *buffer, size_t len, struct sha1_ctx *ctx)
     }
 }
 
-/* shntool-specific stuff starts here */
+/* shdtool-specific stuff starts here */
 
 static void hash_help()
 {
@@ -1083,7 +1083,7 @@ static void print_audio_hash(char *filename)
   for (i=0;i<(hash_hex_bytes/2);i++)
     st_output("%02x",audio_hash[i]);
 
-  st_output("  [shntool]  %s\n",filename);
+  st_output("  [shdtool]  %s\n",filename);
 }
 
 static bool generate_audio_hash_single(wave_info *info)

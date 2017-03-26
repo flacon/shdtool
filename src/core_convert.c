@@ -16,7 +16,7 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#include "shntool.h"
+#include "shdtool.h"
 
 CVSID("$Id: core_convert.c,v 1.21 2009/03/11 17:18:01 jason Exp $")
 

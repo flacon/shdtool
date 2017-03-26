@@ -26,7 +26,7 @@
 #include <sys/wait.h>
 #endif
 #include <sys/stat.h>
-#include "shntool.h"
+#include "shdtool.h"
 
 CVSID("$Id: core_mode.c,v 1.88 2009/03/30 05:55:33 jason Exp $")
 
@@ -428,7 +428,7 @@ static wlong is_m_ss_nnn(unsigned char *buf,wave_info *info)
 /* Compare strings while treating digits characters numerically.
    Copyright (C) 1997, 2000 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
-   Contributed by Jean-François Bignolles <bignolle@ecoledoc.ibp.fr>, 1997.
+   Contributed by Jean-FranÃ§ois Bignolles <bignolle@ecoledoc.ibp.fr>, 1997.
 
    The GNU C Library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public License as
@@ -855,7 +855,7 @@ int close_and_wait(FILE *fd,proc_info *pinfo,int child_type,format_module *fm)
     /*
      * kill input processes outright, since we're done with them.  this prevents programs from stalling us too long.
      * for example, 'la' doesn't exit when we close its stdout, but instead keeps decoding the whole file.  so each
-     * time shntool opens an 'la' file, it will be decoded entirely at least four times before all is said and done,
+     * time shdtool opens an 'la' file, it will be decoded entirely at least four times before all is said and done,
      * even for simple things such as checking sizes in len mode.  a preemptive 'kill' here prevents this from
      * happening.  note that we can't do this for output child types, since we may unwittingly corrupt the output
      * file in the process -- for example, we would most certainly cause problems with .shn files by killing
@@ -1159,7 +1159,7 @@ int st_getopt(int argc,char **argv,char *mode_opts)
 
   global_opts = (st_priv.mode->creates_files) ? GLOBAL_OPTS GLOBAL_OPTS_OUTPUT : GLOBAL_OPTS;
 
-  /* make sure the calling mode isn't using an option reserved for shntool global use */
+  /* make sure the calling mode isn't using an option reserved for shdtool global use */
   c[1] = 0;
   for (p=global_opts;*p;p++) {
     if (':' == *p)

@@ -47,22 +47,22 @@
 /* #undef HAVE_WINDOWS_H */
 
 /* Name of package */
-#define PACKAGE "shntool"
+#define PACKAGE "shdtool"
 
 /* Define to the address where bug reports for this package should be sent. */
 #define PACKAGE_BUGREPORT "shnutils@freeshell.org"
 
 /* Define to the full name of this package. */
-#define PACKAGE_NAME "shntool"
+#define PACKAGE_NAME "shdtool"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "shntool 3.0.10"
+#define PACKAGE_STRING "shdtool 3.0.10"
 
 /* Define to the one symbol short name of this package. */
-#define PACKAGE_TARNAME "shntool"
+#define PACKAGE_TARNAME "shdtool"
 
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "3.0.10"
+//#define PACKAGE_VERSION "3.0.10"
 
 /* Define to 1 if you have the ANSI C header files. */
 #define STDC_HEADERS 1

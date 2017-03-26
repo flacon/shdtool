@@ -40,7 +40,7 @@
 #define GLOBAL_OPTS_OUTPUT "O:a:d:o:z:"
 
 /* set this environment variable to enable debugging.  can also use -D, but this enables it earlier */
-#define SHNTOOL_DEBUG_ENV "ST_DEBUG"
+#define SHDTOOL_DEBUG_ENV "ST_DEBUG"
 
 /* various buffer sizes */
 #define PROGNAME_SIZE 256

@@ -1,4 +1,4 @@
-/*  core_shntool.c - functions to handle mode verification and execution
+/*  core_shdtool.c - functions to handle mode verification and execution
  *  Copyright (C) 2000-2009  Jason Jordan <shnutils@freeshell.org>
  *
  *  This program is free software; you can redistribute it and/or
@@ -18,7 +18,7 @@
 
 #include <string.h>
 #include <signal.h>
-#include "shntool.h"
+#include "shdtool.h"
 
 CVSID("$Id: core_shntool.c,v 1.90 2009/03/16 04:46:03 jason Exp $")
 
@@ -348,7 +348,7 @@ static void globals_init(char *program)
   st_input.filecur = 0;
   st_input.filemax = 0;
 
-  p = scan_env(SHNTOOL_DEBUG_ENV);
+  p = scan_env(SHDTOOL_DEBUG_ENV);
   n = p ? atoi(p) : 0;
 
   st_priv.debug_level = (n > 0) ? n : 0;

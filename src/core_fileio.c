@@ -17,7 +17,7 @@
  */
 
 #include <string.h>
-#include "shntool.h"
+#include "shdtool.h"
 
 CVSID("$Id: core_fileio.c,v 1.44 2009/03/11 17:18:01 jason Exp $")
 

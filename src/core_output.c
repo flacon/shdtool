@@ -18,7 +18,7 @@
 
 #include <string.h>
 #include <stdarg.h>
-#include "shntool.h"
+#include "shdtool.h"
 
 CVSID("$Id: core_output.c,v 1.36 2009/03/11 17:18:01 jason Exp $")
 

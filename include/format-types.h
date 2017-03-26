@@ -47,7 +47,7 @@ typedef struct _format_module {
   bool    const remove_output_file;          /* remove output file before opening it for output?  (prevents some encoders from complaining that the file already exists) */
   bool    const kill_when_input_done;        /* kill() decoder when finished reading input?  (prevents delays introduced by decoders that don't exit when we close stdout) */
   char   *const stdin_for_id3v2_kluge;       /* if not NULL, try to skip id3v2 tags on input files by passing data on decoder's stdin using this as the stdin argument */
-  char   *const magic;                       /* if not NULL, shntool will check for this string at position magic_offset in the input file */
+  char   *const magic;                       /* if not NULL, shdtool will check for this string at position magic_offset in the input file */
   int     const magic_offset;                /* offset within the file at which the magic string is expected to occur */
 
   /* can be changed at run time */
@@ -59,17 +59,17 @@ typedef struct _format_module {
 
   /* optional functions - set to NULL if not applicable */
   bool  (*is_our_file)(char *);              /* routine to determine whether the given file belongs to this format plugin */
-  FILE *(*input_func)(char *,proc_info *);   /* routine to open a file of this format for input - if NULL, shntool will launch the decoder */
-  FILE *(*output_func)(char *,proc_info *);  /* routine to open a file of this format for output - if NULL, shntool will launch the encoder */
+  FILE *(*input_func)(char *,proc_info *);   /* routine to open a file of this format for input - if NULL, shdtool will launch the decoder */
+  FILE *(*output_func)(char *,proc_info *);  /* routine to open a file of this format for output - if NULL, shdtool will launch the encoder */
   void  (*extra_info)(char *);               /* routine to display extra information in info mode */
   void  (*create_output_filename)(char *);   /* routine to create a custom output filename */
   bool  (*input_header_kluge)(unsigned char *,struct _wave_info *);  /* routine to determine correct header info for when decoders are unable to do so themselves */
 
   /* internal argument lists (do not assign these in format modules) */
-  child_args input_args_template;           /* input argument template (filled out by shntool, based on default_decoder_args) */
-  child_args input_args;                    /* input arguments, filled out (used by shntool when launching decoder) */
-  child_args output_args_template;          /* output argument template (filled out by shntool, based on default_encoder_args) */
-  child_args output_args;                   /* output arguments, filled out (used by shntool when launching encoder) */
+  child_args input_args_template;           /* input argument template (filled out by shdtool, based on default_decoder_args) */
+  child_args input_args;                    /* input arguments, filled out (used by shdtool when launching decoder) */
+  child_args output_args_template;          /* output argument template (filled out by shdtool, based on default_encoder_args) */
+  child_args output_args;                   /* output arguments, filled out (used by shdtool when launching encoder) */
 } format_module;
 
 /* child process types */
