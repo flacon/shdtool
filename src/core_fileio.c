@@ -110,10 +110,16 @@ bool read_value_long(FILE *file,unsigned long *be_val,unsigned long *le_val,unsi
   buf[4] = 0;
 
   if (be_val)
-    *be_val = (buf[0] << 24) | (buf[1] << 16) | (buf[2] << 8) | buf[3];
+    *be_val =   (((unsigned long)buf[0]) << 24)
+              | (((unsigned long)buf[1]) << 16)
+              | (((unsigned long)buf[2]) << 8)
+              |  ((unsigned long)buf[3]);
 
   if (le_val)
-    *le_val = (buf[3] << 24) | (buf[2] << 16) | (buf[1] << 8) | buf[0];
+    *le_val =   (((unsigned long)buf[3]) << 24)
+              | (((unsigned long)buf[2]) << 16)
+              | (((unsigned long)buf[1]) << 8)
+              |  ((unsigned long)buf[0]);
 
   if (tag_val)
     tagcpy(tag_val,buf);
