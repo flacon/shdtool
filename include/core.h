@@ -25,12 +25,7 @@
 
 #include "config.h"
 
-/* program info */
-#define RELEASE   VERSION
-#define COPYRIGHT "Copyright (C) 2000-2009"
-#define AUTHOR    "Jason Jordan <shnutils@freeshell.org>"
-#define URL1      "http://www.etree.org/shnutils/"
-#define URL2      "http://shnutils.freeshell.org/"
+
 
 /* options for core (non-mode) use */
 #define GLOBAL_OPTS_CORE   "afhjmv"

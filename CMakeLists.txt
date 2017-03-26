@@ -5,17 +5,18 @@ project(shdtool "C")
 set(MAJOR_VERSION 4)
 set(MINOR_VERSION 0)
 set(PATCH_VERSION 0)
-set(${PROJECT_NAME}_VERSION ${MAJOR_VERSION}.${MINOR_VERSION}.${PATCH_VERSION})
+set(PROJECT_VERSION ${MAJOR_VERSION}.${MINOR_VERSION}.${PATCH_VERSION})
 
-add_definitions(-D${PROJECT_NAME}_MAJOR_VERSION=\"${MAJOR_VERSION}\")
-add_definitions(-D${PROJECT_NAME}_MINOR_VERSION=\"${MINOR_VERSION}\")
-add_definitions(-D${PROJECT_NAME}_PATCH_VERSION=\"${PATCH_VERSION}\")
-add_definitions(-D${PROJECT_NAME}_VERSION=\"${FLACON_VERSION}\")
+
+#add_definitions(-D${PROJECT_NAME}_MAJOR_VERSION=\"${MAJOR_VERSION}\")
+#add_definitions(-D${PROJECT_NAME}_MINOR_VERSION=\"${MINOR_VERSION}\")
+#add_definitions(-D${PROJECT_NAME}_PATCH_VERSION=\"${PATCH_VERSION}\")
+#add_definitions(-D${PROJECT_NAME}_VERSION=\"${FLACON_VERSION}\")
 
 
 set(HEADERS
     include/binary.h
-    include/config.h
+    include/config.h.in
     include/convert.h
     include/core.h
     include/fileio.h
@@ -109,6 +110,8 @@ include_directories(
 )
 
 
+# Generate config.h
+configure_file("include/config.h.in" "${CMAKE_CURRENT_BINARY_DIR}/config.h" @ONLY)
 
 # Generate glue_modes.c
 set(GLUE_MODULES "${CMAKE_CURRENT_BINARY_DIR}/glue_modes.c")

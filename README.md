@@ -1,70 +1,47 @@
-Installation
-------------
+What is it?
+-----------
 
-You will most likely need GNU make to build and install shntool.  So far, the
-standard make program is known to fail on NetBSD and Solaris.  If 'make' fails,
-try 'gmake'.  If you don't have 'gmake', then you will need to install GNU make.
-The latest version of GNU make as of shntool's release is 3.81, and you can
-build it from source available here:   http://ftp.gnu.org/gnu/make/
+This Project is the successor of [shntool](http://www.etree.org/shnutils/shntool/) and aims to provide support of modern high definition audio formats and new features.
 
-Generic instructions on how to build and install shntool are contained in the
-INSTALL file.  Be sure to read it, especially if you have any problems, as it
-will contain important notes related to building and installing.  However, for
-most people this process will be as simple as:
 
-% ./configure
-% make                           (or gmake, if make gives you trouble)
-% su -c "make install"           (or install-strip, where strip is supported)
+shdtool is a multi-purpose WAVE data processing and reporting utility. File formats are abstracted from its core, so it can process any file that contains WAVE data, 
+compressed or not - provided there exists a format module to handle that particular file type.
 
-If you want to customize which mode and/or format modules are built, see the
-"shntool-specific configure options" section below.
+shdtool has native support for .wav files. If you want it to work with other lossless audio formats, you must have the appropriate helper program installed. 
+The "Helper programs" section below contains links to helper programs for each format that shdtool supports.
 
 
 Documentation
 -------------
 
-A description of shntool's modes and command-line arguments are contained in
-the man page.
-
-To see what changes were made since previous releases, consult the ChangeLog
-file.
+A description of shdtool's modes and command-line arguments are contained in the man page.
 
 
-shntool-specific configure options
-----------------------------------
+Helper programs
+---------------
 
-In addition to the standard command-line switches described in the "Basic
-Installation" section below, the configure script for shntool also recognizes
-the following four options:
+Here are some links to various helper programs you may need. For full functionality with shntool, make sure to use the patched version of any helper program if your platform appears under the "patched for" column.
 
-  --with-modes=LIST           Specify default modes
-  --with-formats=LIST         Specify default file formats
-  --with-extra-modes=LIST     Specify additional modes
-  --with-extra-formats=LIST   Specify additional file formats
-
-The --with-modes and --with-formats switches are intended to allow you to
-selectively compile certain modes and/or file formats from the list of built-in
-modules.  They also allow you to alter the order of their appearance in the
-modes[] and formats[] arrays internal to shntool, which may be useful if, for
-instance, you want to have the default output file format be 'shn' instead of
-'wav' for modes that create files (since they default to the first file format
-that supports output, which will be 'wav' if the default order is not changed).
-For example, if you want support only for WAVE and shorten-compressed files, and
-you want 'shn' to be the default output format, then pass '--with-formats=shn,wav'
-to the configure script.  Or, suppose you never intend to fix files, and would
-only like to view information about them.  Then you can configure shntool to
-only support the 'len' and 'info' modes by passing '--with-modes=len,info' to
-the configure script.
-
-The --with-extra-modes and --with-extra-formats switches are intended to be used
-by module developers as a way to get their module compiled into shntool.  For
-example, suppose you create a file format module for the 'bar' format.  Then you
-can simply run './configure --with-extra-formats=bar' and your module will be
-included in the list of modules to be built.  Mode modules are configured similarly.
+Windows users: Installation of helper programs is easy. Simply copy the appropriate helper program to the same directory where shntool.exe is installed, or any other directory in your PATH.
 
 
-==================
-Document revision:
-==================
 
-$Id: README,v 1.10 2007/01/08 15:26:07 jason Exp $
+Format | Helper program                                             | Read | Write
+-------|------------------------------------------------------------|------|------
+aiff   | [SOX](http://sox.sourceforge.net/)                         | yes  | yes
+alac   | [ALAC](http://craz.net/programs/itunes/alac.html)          | yes  | no
+als    | [mp4als](http://www.nue.tu-berlin.de/menue/forschung/projekte/beendete_projekte/mpeg-4_audio_lossless_coding_als/) | yes | yes
+ape    | [mac-port](http://supermmx.org/linux/mac/)                 | yes  | yes
+bonk   | [Bonk](http://www.logarithmic.net/pfh/bonk)                | yes  | yes
+flac   | [FLAC](http://flac.sourceforge.net/)                       | yes  | yes
+kxs    | [Kexis](http://www.sourceforge.net/projects/kexis/)        | yes  | no
+la     | [La](http://www.lossless-audio.com/)                       | yes  | no
+lpac   | [LPAC](http://www.nue.tu-berlin.de/wer/liebchen/lpac.html) | yes  | no
+mkw    | [mkwcon](http://www.etree.org/shnutils/mkwcon/)            | yes  | yes
+ofr    | [OptimFROG](http://www.losslessaudio.org/)                 | yes  | yes
+shn    | [shorten](http://www.etree.org/shnutils/shorten/)          | yes  | yes
+tak    | -                                                          | yes  | yes
+tta    | [TTA](http://sourceforge.net/projects/tta/)                | yes  | yes
+wav    | -                                                          | yes  | yes
+wv     | [WavPack](http://www.wavpack.com/)                         | yes  | yes
+
