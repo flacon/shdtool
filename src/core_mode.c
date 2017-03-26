@@ -345,8 +345,8 @@ static wlong is_m_ss_ff(unsigned char *buf,wave_info *info)
   *colon = 0;
   *dot = 0;
 
-  if (PROB_NOT_CD(info))
-    st_error("m:ss.ff format can only be used with CD-quality files");
+//  if (PROB_NOT_CD(info))
+//    st_error("m:ss.ff format can only be used with CD-quality files");
 
   min = atoi((const char *)buf);
   sec = atoi((const char *)(colon+1));
