@@ -1,0 +1,30 @@
+Each release is distributed with no known bugs; however, they do creep up from
+time to time.  I will keep an updated list of known bugs on shntool's web page,
+which can be found at:
+
+  http://www.etree.org/shnutils/  or  http://shnutils.freeshell.org/
+
+If you do discover any bugs (e.g. incorrect output and/or spectacular crashes),
+please send a bug report to me at <shnutils@freeshell.org>.  Try to provide as
+much information as you can.  It would be helpful to know the following
+information:
+
+  - operating system and version
+  - version of shntool affected
+  - a detailed description of how to reproduce the problem (this may require you
+    to provide me with the actual files that cause it)
+  - optionally, any debugging information you can provide (stack traces, raw
+    program output (preferably with the -D option enabled), etc.)
+
+I am also interested in general feedback.  This includes, but is not necessarily
+limited to, the following:
+
+  - questions
+  - comments
+  - suggestions
+  - patches
+  - new mode and/or format modules to be included in the shntool distribution
+
+Thanks, and enjoy!
+
+Jason
