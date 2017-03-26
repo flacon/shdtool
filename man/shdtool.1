@@ -1,20 +1,20 @@
-.TH SHNTOOL 1 "March 2009" "shntool 3.0.10" "local"
+.TH SHDTOOL 1 "March 2017" "@PROJECT_NAME@ @PROJECT_VERSION@" "local"
 .SH "NAME"
-shntool \- a multi\(hypurpose WAVE data processing and reporting utility
+@PROJECT_NAME@ \- a multi\(hypurpose WAVE data processing and reporting utility
 
 .SH "SYNOPSIS"
-.B shntool
+.B shdtool
 .IR mode " ..."
 .br
-.B shntool
+.B shdtool
 .RI "[" "CORE OPTION" "]"
 
 .SH "DESCRIPTION"
-.B shntool
+.B shdtool
 is a command\(hyline utility to view and/or modify WAVE data and properties.
 It runs in several different operating modes, and supports various lossless audio formats.
 .PP
-.B shntool
+.B shdtool
 is comprised of three parts \(hy its core,
 .I mode
 modules, and
@@ -25,15 +25,15 @@ The distribution archive contains a file named 'modules.howto' that describes ho
 or format module, for those so inclined.
 
 .SS Mode modules
-.B shntool
+.B shdtool
 performs various functions on WAVE data through the use of mode modules.
 The core of
-.B shntool
+.B shdtool
 is simply a wrapper around the mode modules.  In fact, when
-.B shntool
+.B shdtool
 is run with a valid mode as its first argument,
 it essentially runs the main procedure for the specified mode, and quits.
-.B shntool
+.B shdtool
 comes with several built\(hyin modes, described below:
 .br
 
@@ -89,22 +89,22 @@ section below.
 .PP
 For convenience, each mode can specify an alternate name or alias that will invoke it
 (this feature is currently only available on systems that support symbolic or hard linking).
-In particular, each mode is aliased to 'shn<mode>'.
+In particular, each mode is aliased to 'shd<mode>'.
 For instance, running
-.I shnlen
+.I shdlen
 is equivalent to running
-.B shntool
+.B shdtool
 .I len
 - thus saving a few keystrokes.
 
 .SS Format modules
 File formats are abstracted from
-.B shntool
+.B shdtool
 through the use of format modules.  They provide a means for
-.B shntool
+.B shdtool
 to tranparently read and/or write different file formats.
 This abstraction allows
-.B shntool
+.B shdtool
 to concentrate on its job without worrying about the
 details of each file format.
 .PP
@@ -199,7 +199,7 @@ MKW Audio Compression format (via 'mkwcon'):
 .TP
 .I cust
 Custom output format module (output only, useful for encoding to a format that
-.B shntool
+.B shdtool
 does not yet support)
 .TP
 .I term
@@ -215,10 +215,10 @@ mode)
 
 .PP
 When reading files for input,
-.B shntool
+.B shdtool
 automatically discovers which, if any, format module handles each file.
 In modes where files are created as output, you can specify what the output format should be \(hy otherwise,
-.B shntool
+.B shdtool
 decides for you by selecting the first format module it finds that supports output (in a default installation, this will be the
 .I wav
 format).
@@ -226,7 +226,7 @@ format).
 .SH "CORE OPTIONS"
 .SS "Modeless"
 When run without a mode,
-.B shntool
+.B shdtool
 takes these options:
 .TP
 .B \-m
@@ -418,7 +418,7 @@ nearest millisecond.
 Shows the total size of all WAVE chunks within the file (header, data and any extra RIFF chunks).
 Essentially this is the size that the file would be if it were converted to .wav format, e.g.
 with
-.B shntool
+.B shdtool
 .IR conv .
 
 NOTE: Do not rely on this field for audio size!  If you simply want to know how many bytes of
@@ -485,10 +485,10 @@ Shift track breaks backward to the previous sector boundary.  This is the defaul
 .TP
 .B \-c
 Check whether fixing is needed, without actually fixing anything.
-.B shntool
+.B shdtool
 will exit with status 0 if fixing is needed, and status 1 otherwise.
 This can be useful in shell scripts, e.g.:
-"if shntool fix \-c *; then shntool fix *; else ...; fi"
+"if shdtool fix \-c *; then shdtool fix *; else ...; fi"
 .TP
 .B \-f
 Shift track breaks forward to the next sector boundary.
@@ -864,7 +864,7 @@ Only trim silence from the end of files
 .SH "ENVIRONMENT VARIABLES"
 .TP
 .B ST_DEBUG
-If set, shntool will print debugging information.  This is analogous to the
+If set, shdtool will print debugging information.  This is analogous to the
 .B \-D
 global option, with the exception that debugging is enabled immediately, instead of
 when the command\(hyline is parsed.
@@ -914,13 +914,13 @@ Note that command\(hyline options take precedence over any of these environment 
 
 .SH "EXIT STATUS"
 Generally speaking,
-.B shntool
+.B shdtool
 will exit with status 0 upon success, and status 1 if it encounters an error.
 The only exception is when the 'quit' option is selected from within the
 interactive file reordering menu, in which case the exist status will be 255.
 
 .SH "NOTES"
-.B shntool
+.B shdtool
 is a misnomer, since it
 processes WAVE data, not shorten data.
 The name is a holdover from its early days as 'shnlen',
@@ -928,26 +928,27 @@ a program created specifically to extract information
 about WAVE data stored within .shn files.
 .PP
 Aliases for
-.B shntool
+.B shdtool
 are prefixed with 'shn' instead of 'wav' to avoid possible collisions with existing programs.
 
 .SH "AUTHOR"
 Jason Jordan <shnutils at freeshell dot org>
+Alex Sokolov <sokoloff.a@gmail.com>
 .br
 
 Please send all bug reports to the above address.
 .br
 
 The latest version of
-.B shntool
-can always be found at <http://www.etree.org/shnutils/> or <http://shnutils.freeshell.org/>.
+.B shdtool
+can always be found at <@HOME_URL@>.
 
 .SH "COPYRIGHT"
-Copyright (C) 2000\-2009 Jason Jordan
+Copyright (C) 2000\-2009 Jason Jordan, 2017 Alex Sokolov.
 .br
 
 This is free software.  You may redistribute copies of it under the terms of the GNU General Public License
 <http://www.gnu.org/licenses/gpl.html>.  There is NO WARRANTY, to the extent permitted by law.
 
 .SH "REVISION"
-$Id: shntool.1,v 1.140 2009/03/30 05:59:25 jason Exp $
+$Id: shdtool.1,v 1.140 2017/03/26 05:59:25 jason Exp $
