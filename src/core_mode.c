@@ -310,8 +310,8 @@ static wlong is_m_ss(unsigned char *buf,wave_info *info)
   if (sec >= 60)
     st_error("invalid value for seconds: [%d]",sec);
 
-  bytes = (wlong)(min * info->rate * 60) +
-          (wlong)(sec * info->rate);
+  bytes = (((wlong)min) * info->rate * 60) +
+          (((wlong)sec) * info->rate);
 
   return bytes;
 }
@@ -358,9 +358,9 @@ static wlong is_m_ss_ff(unsigned char *buf,wave_info *info)
   if (frames >= 75)
     st_error("invalid value for frames: [%d]",frames);
 
-  bytes = (wlong)(min * CD_RATE * 60) +
-          (wlong)(sec * CD_RATE) +
-          (wlong)(frames * CD_BLOCK_SIZE);
+  bytes = (((wlong)min) * CD_RATE * 60) +
+          (((wlong)sec) * CD_RATE) +
+          (((wlong)frames) * CD_BLOCK_SIZE);
 
   return bytes;
 }
@@ -403,8 +403,8 @@ static wlong is_m_ss_nnn(unsigned char *buf,wave_info *info)
 
   nearest_byte = (int)((((double)ms * (double)info->rate) / 1000.0) + 0.5);
 
-  bytes = (wlong)(min * info->rate * 60) +
-          (wlong)(sec * info->rate);
+  bytes = (((wlong)min) * info->rate * 60) +
+          (((wlong)sec) * info->rate);
 
   if (PROB_NOT_CD(info)) {
     bytes += nearest_byte;
