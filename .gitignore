@@ -33,3 +33,19 @@
 *.su
 
 /build
+cmake_install.cmake
+cmake_uninstall.cmake
+Makefile
+CMakeFiles
+CMakeCache.txt
+CPackConfig.cmake
+CPackSourceConfig.cmake
+lib*.so
+lib*.so.*
+*~
+*.autosave
+CMakeLists.txt.user*
+/clang_check
+*.kate-swp
+*.pro.user
+*.pro.user.*
