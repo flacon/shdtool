@@ -44,25 +44,26 @@ set(SOURCES
     src/core_shdtool.c
     src/core_wave.c
 
-    src/format_aiff.c
-    src/format_alac.c
-    src/format_als.c
-    src/format_ape.c
-    src/format_bonk.c
-    src/format_cust.c
-    src/format_flac.c
-    src/format_kxs.c
-    src/format_la.c
-    src/format_lpac.c
-    src/format_mkw.c
-    src/format_null.c
-    src/format_ofr.c
-    src/format_shn.c
-    src/format_tak.c
-    src/format_term.c
-    src/format_tta.c
     src/format_wav.c
+    src/format_aiff.c
+    src/format_shn.c
+    src/format_flac.c
+    src/format_ape.c
+    src/format_alac.c
+    src/format_tak.c
+    src/format_ofr.c
+    src/format_tta.c
+    src/format_als.c
     src/format_wv.c
+    src/format_lpac.c
+    src/format_la.c
+    src/format_mkw.c
+    src/format_bonk.c
+    src/format_kxs.c
+    src/format_cust.c
+    src/format_term.c
+    src/format_null.c
+
 
     src/mode_len.c
     src/mode_fix.c
