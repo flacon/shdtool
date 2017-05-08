@@ -1,3 +1,5 @@
+**I don't plan to support this project. If you have a desire to support it, make the fork**
+
 What is it?
 -----------
 
